@@ -1,15 +1,35 @@
 #!/usr/bin/python
 '''
-Author: Matthew Harris <admin@mattharris.org>
-Description: Provide interface to test security of Wordpress Admin Passwords and notify of weak passwords
-Version: 1.0
-Revision: 1
+
 '''
 import os
 import re
 import sys
 import phpass
 import MySQLdb
+
+
+
+def auth(username,password):
+    
+    return
+    
+def GetWPDBcredentials(config_file="/var/www/wp-config.php"):
+    cred = {}
+    
+    h_file = open(config_file,"r")
+    
+    cred = {}
+
+    for l in h_file:
+        
+        if l.find("DB_") != -1:
+            parts = l.split("'")
+            cred[parts[1]] = parts[3]
+            
+    
+    
+    return cred
 
 '''
 Find a list of wordpress databases based of the wp_ table prefix
