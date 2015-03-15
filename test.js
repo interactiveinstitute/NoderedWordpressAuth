@@ -2,10 +2,10 @@ var PythonShell = require('python-shell');
  
 var options = {
   mode: 'text',
-  pythonPath: 'path/to/python',
+  pythonPath: '/bin/python',
   pythonOptions: ['-u'],
-  scriptPath: 'path/to/my/scripts',
-  args: ['value1', 'value2', 'value3']
+  scriptPath: '/home/iot/services/node-red',
+  args: ['-u test', '-p value2']
 };
  
 PythonShell.run('my_script.py', options, function (err, results) {
