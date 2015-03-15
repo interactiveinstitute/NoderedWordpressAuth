@@ -28,7 +28,7 @@ module.exports = {
               var valid = 0;
               var premission = "read";
               
-              if (results[0] == "VALID")
+              if (results[0] == username)
               {
                 valid = 1;
                 
@@ -56,6 +56,7 @@ module.exports = {
         return when.promise(function(resolve) {
             // Do whatever work is needed to validate the username/password
             // combination.
+           
             if (valid) {
                 // Resolve with the user object. Equivalent to having
                 // called users(username);
