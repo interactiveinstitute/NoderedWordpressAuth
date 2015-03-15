@@ -5,7 +5,7 @@ var options = {
   pythonPath: '/usr/bin/python',
   pythonOptions: ['-u'],
   scriptPath: '/home/iot/services/NoderedWordpressAuth',
-  args: ['-u','test','-p','ttes1234!']
+  args: ['-u','test','-p','tte  s1234!']
 };
  
 PythonShell.run('WordpressAuth.py', options, function (err, results) {
