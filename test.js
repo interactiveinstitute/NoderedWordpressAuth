@@ -4,7 +4,7 @@ var options = {
   mode: 'text',
   pythonPath: '/bin/python',
   pythonOptions: ['-u'],
-  scriptPath: '/home/iot/services/node-red',
+  scriptPath: '/home/iot/services/NoderedWordpressAuth/WordpressAuth.py',
   args: ['-u test', '-p value2']
 };
  
