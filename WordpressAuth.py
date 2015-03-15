@@ -7,6 +7,7 @@ import re
 import sys
 import phpass
 import MySQLdb
+import argparse
 
 def auth(username,password):
 
