@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument('-u', dest='user', help='Username')
-    parser.add_argument('-p', dest='password', help='Password')
+    parser.add_argument('-p', dest='password', default="", help='Password')
     parser.add_argument('-c', dest='configfile', default="/var/www/wp-config.php", help='Wordpress config file.')
 
     args = parser.parse_args()
