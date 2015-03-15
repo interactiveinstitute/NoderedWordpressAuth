@@ -98,4 +98,4 @@ if __name__ == '__main__':
     #Where am I
     path = os.path.abspath(os.path.dirname(sys.argv[0]))
 
-    print auth(user,password)
+    print auth(args.user,args.password)
