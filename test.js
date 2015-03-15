@@ -3,7 +3,7 @@ var PythonShell = require('python-shell');
 var options = {
   mode: 'text',
   pythonPath: '/usr/bin/python',
-  pythonOptions: [''],
+  pythonOptions: ['-u'],
   scriptPath: '/home/iot/services/NoderedWordpressAuth',
   args: ['-u test -p ttes1234!']
 };
