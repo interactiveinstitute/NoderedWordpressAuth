@@ -31,9 +31,9 @@ def auth(username,password):
         check = wp_hasher.check_password(password, password_hash)
             
         if check:
-                return [username,True,UserDict[username][1]]
+                return [username,UserDict[username][1],True]
         else:
-                return [username,False,UserDict[username][1]]
+                return [username,UserDict[username][1],False]
 
 def GetWPuser():
     cred = GetWPDBcredentials()
