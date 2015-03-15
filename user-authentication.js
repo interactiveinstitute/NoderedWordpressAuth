@@ -1,11 +1,31 @@
 
 var when = require("when");
+
+var PythonShell = require('python-shell');
+ 
+
+
 module.exports = {
     type: "credentials",
     users: function(username) {
         return when.promise(function(resolve) {
             // Do whatever work is needed to check username is a valid
             // user.
+            
+            var options = {
+              mode: 'text',
+              pythonPath: '/bin/python',
+              pythonOptions: ['-u'],
+              scriptPath: '/home/iot/services/node-red',
+              args: ['value1', 'value2', 'value3']
+            };
+             
+            PythonShell.run('my_script.py', options, function (err, results) {
+              if (err) throw err;
+            
+              resolve(results);
+            });
+            
             if (valid) {
                 // Resolve with the user object. It must contain
                 // properties 'username' and 'permissions'
