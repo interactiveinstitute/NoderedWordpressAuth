@@ -85,4 +85,16 @@ def GetWPDBcredentials(config_file="/var/www/wp-config.php"):
     
     return cred
 
+if __name__ == '__main__':
 
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('-u', dest='user', help='Username')
+    parser.add_argument('-p', dest='password', help='Password')
+    parser.add_argument('-c', dest='configfile', default="/var/www/wp-config.php", help='Wordpress config file.')
+
+    args = parser.parse_args()
+
+    #Where am I
+    path = os.path.abspath(os.path.dirname(sys.argv[0]))
+
+    print auth(user,password)
