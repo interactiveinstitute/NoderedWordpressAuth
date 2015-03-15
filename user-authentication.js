@@ -14,22 +14,37 @@ module.exports = {
             
             var options = {
               mode: 'text',
-              pythonPath: '/bin/python',
+              pythonPath: '/usr/bin/python',
               pythonOptions: ['-u'],
-              scriptPath: '/home/iot/services/node-red',
-              args: ['value1', 'value2', 'value3']
+              scriptPath: '/home/iot/services/NoderedWordpressAuth',
+              args: ['-u',username]
             };
              
-            PythonShell.run('my_script.py', options, function (err, results) {
+            PythonShell.run('WordpressAuth.py', options, function (err, results) {
               if (err) throw err;
-            
-              resolve(results);
+              // results is an array consisting of messages collected during execution 
+              //console.log('results: %j', results);
+              
+              var valid = 0;
+              var premission = "read";
+              
+              if (results[0] == "VALID")
+              {
+                valid = 1;
+                
+                if (results[1] == "administrator")
+                {
+                 var premission = "*"
+                }
+                
+              }
+           
             });
             
             if (valid) {
                 // Resolve with the user object. It must contain
                 // properties 'username' and 'permissions'
-                var user = { username: "admin", permissions: "*" };
+                var user = { username: username, permissions: premission };
                 resolve(user);
             } else {
                 // Resolve with null to indicate this user does not exist
@@ -57,7 +72,7 @@ module.exports = {
         return when.promise(function(resolve) {
             // Resolve with the user object for the default user.
             // If no default user exists, resolve with null.
-            resolve({anonymous: true, permissions:"read"});
+            resolve(null);
         });
     }
 }
