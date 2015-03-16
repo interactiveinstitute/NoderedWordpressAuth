@@ -103,7 +103,14 @@ if __name__ == '__main__':
     #print "USER:" + args.user
     #print "PASS:" + args.password
 
-    res = auth(args.user,args.password)
+    try:
 
-    for i in res:
-        print i
+    	res = auth(args.user,args.password)
+
+    	for i in res:
+            print i
+    except:
+
+	print None
+	print None
+	print False
