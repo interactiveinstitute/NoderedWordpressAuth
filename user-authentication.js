@@ -56,6 +56,32 @@ module.exports = {
         return when.promise(function(resolve) {
             // Do whatever work is needed to validate the username/password
             // combination.
+            var options = {
+              mode: 'text',
+              pythonPath: '/usr/bin/python',
+              pythonOptions: ['-u'],
+              scriptPath: '/home/iot/services/NoderedWordpressAuth',
+              args: ['-u',username,'-p',password]
+            };
+             
+            PythonShell.run('WordpressAuth.py', options, function (err, results) {
+              if (err) throw err;
+              // results is an array consisting of messages collected during execution 
+              //console.log('results: %j', results);
+              
+              var valid = 0;
+              var premission = "read";
+              
+              if (results[0] == username) && (results[2] == 'True')
+              {
+                valid = 1;
+                
+                if (results[1] == "administrator")
+                {
+                 var premission = "*"
+                }
+                
+              }
            
             if (valid) {
                 // Resolve with the user object. Equivalent to having
