@@ -25,31 +25,34 @@ module.exports = {
               // results is an array consisting of messages collected during execution 
               //console.log('results: %j', results);
               
-              var valid = 0;
               var premission = "read";
               
+              //Valid?
               if (results[0] == username)
               {
-                valid = 1;
+                
                 
                 if (results[1] == "administrator")
                 {
                  var premission = "*"
                 }
                 
-              }
-           
-            });
-            
-            if (valid) {
+                
                 // Resolve with the user object. It must contain
                 // properties 'username' and 'permissions'
                 var user = { username: username, permissions: premission };
                 resolve(user);
-            } else {
+            
+            } 
+            else 
+            {
                 // Resolve with null to indicate this user does not exist
                 resolve(null);
             }
+           
+            });
+            
+            
         });
     },
     authenticate: function(username,password) {
@@ -75,26 +78,29 @@ module.exports = {
               
               if ((results[0] == username) && (results[2] == 'True'))
               {
-                valid = 1;
+                
                 
                 if (results[1] == "administrator")
                 {
                  var premission = "*"
                 }
                 
+               // Resolve with the user object. Equivalent to having
+               // called users(username);
+              var user = { username: "admin", permissions: "*" };
+              resolve(user);
+                
+              }
+              else
+              {
+              	// Resolve with null to indicate the username/password pair
+                // were not valid.
+                resolve(null);
+              }
               }
 	    });
            
-            if (valid) {
-                // Resolve with the user object. Equivalent to having
-                // called users(username);
-                var user = { username: "admin", permissions: "*" };
-                resolve(user);
-            } else {
-                // Resolve with null to indicate the username/password pair
-                // were not valid.
-                resolve(null);
-            }
+           
         });
     },
     default: function() {
