@@ -56,6 +56,7 @@ module.exports = {
         return when.promise(function(resolve) {
             // Do whatever work is needed to validate the username/password
             // combination.
+
             var options = {
               mode: 'text',
               pythonPath: '/usr/bin/python',
@@ -72,7 +73,7 @@ module.exports = {
               var valid = 0;
               var premission = "read";
               
-              if (results[0] == username) && (results[2] == 'True')
+              if ((results[0] == username) && (results[2] == 'True'))
               {
                 valid = 1;
                 
@@ -82,6 +83,7 @@ module.exports = {
                 }
                 
               }
+	    });
            
             if (valid) {
                 // Resolve with the user object. Equivalent to having
