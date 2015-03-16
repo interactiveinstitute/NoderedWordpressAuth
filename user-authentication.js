@@ -43,12 +43,12 @@ module.exports = {
                 var user = { username: username, permissions: premission };
                 resolve(user);
             
-            } 
-            else 
-            {
+              } 
+              else 
+              {
                 // Resolve with null to indicate this user does not exist
                 resolve(null);
-            }
+              }
            
             });
             
@@ -85,10 +85,10 @@ module.exports = {
                  var premission = "*"
                 }
                 
-               // Resolve with the user object. Equivalent to having
-               // called users(username);
-              var user = { username: "admin", permissions: "*" };
-              resolve(user);
+                // Resolve with the user object. Equivalent to having
+                // called users(username);
+                var user = { username: "admin", permissions: "*" };
+              	resolve(user);
                 
               }
               else
@@ -97,7 +97,7 @@ module.exports = {
                 // were not valid.
                 resolve(null);
               }
-              }
+        
 	    });
            
            
