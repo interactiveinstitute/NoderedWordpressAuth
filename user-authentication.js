@@ -24,6 +24,11 @@ module.exports = {
               if (err) throw err;
               // results is an array consisting of messages collected during execution 
               //console.log('results: %j', results);
+
+	      if (results == null) 
+	      {
+		resolve(null);
+	      }
               
               var premission = "read";
               
@@ -72,6 +77,12 @@ module.exports = {
               if (err) throw err;
               // results is an array consisting of messages collected during execution 
               //console.log('results: %j', results);
+
+
+	      if (results == null) 
+              {
+                resolve(null); 
+              }
               
               var valid = 0;
               var premission = "read";
